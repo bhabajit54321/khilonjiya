@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
@@ -26,9 +25,8 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Create WhatsApp message
     const message = `
-New Contact Form Submission:
+New Business Inquiry:
 Name: ${formData.name}
 Email: ${formData.email}
 Phone: ${formData.phone}
@@ -41,10 +39,9 @@ Message: ${formData.message}
     
     toast({
       title: "Message sent!",
-      description: "Your message has been sent via WhatsApp. We'll get back to you soon!",
+      description: "Your inquiry has been sent. Our team will respond during business hours.",
     });
     
-    // Reset form
     setFormData({
       name: '',
       email: '',
@@ -57,25 +54,25 @@ Message: ${formData.message}
   const contactInfo = [
     {
       icon: <Phone className="h-6 w-6" />,
-      title: "Phone",
+      title: "Support Number",
       details: "+91 6003170583",
       action: "tel:+916003170583"
     },
     {
       icon: <MessageCircle className="h-6 w-6" />,
-      title: "WhatsApp",
+      title: "WhatsApp Support",
       details: "+91 6003170583",
       action: "https://wa.me/916003170583"
     },
     {
       icon: <Mail className="h-6 w-6" />,
-      title: "Email",
-      details: "info@khilonjiya.com",
-      action: "mailto:info@khilonjiya.com"
+      title: "Support Email",
+      details: "khilonjiyaindiaprivatelimited@gmail.com",
+      action: "mailto:khilonjiyaindiaprivatelimited@gmail.com"
     },
     {
       icon: <MapPin className="h-6 w-6" />,
-      title: "Location",
+      title: "Registered Location",
       details: "Assam, India",
       action: null
     }
@@ -84,11 +81,15 @@ Message: ${formData.message}
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-red-50">
       <Helmet>
-        <title>Contact Us - Get in Touch | Khilonjiya.com</title>
-        <meta name="description" content="Contact Khilonjiya.com for authentic Assamese cultural items. Reach us via phone, WhatsApp, or email. We're here to help with your cultural heritage needs." />
+        <title>Contact Us | Khilonjiya India Private Limited</title>
+        <meta 
+          name="description" 
+          content="Contact Khilonjiya India Private Limited for job portal and construction service related inquiries. Reach us via phone, WhatsApp, or email." 
+        />
       </Helmet>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -97,14 +98,15 @@ Message: ${formData.message}
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold traditional-text mb-6">
-            Contact Us
+            Contact Khilonjiya India Private Limited
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We'd love to hear from you! Get in touch with us for any questions about our authentic Assamese cultural items.
+            For inquiries related to Khilonjiya Job Portal and Khilonjiya Construction Services, reach out through the channels below.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -112,16 +114,16 @@ Message: ${formData.message}
             transition={{ duration: 0.6 }}
             className="bg-white rounded-2xl shadow-lg p-8 cultural-shadow"
           >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Send Business Inquiry</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Full Name *
                   </label>
                   <input
                     type="text"
-                    id="name"
                     name="name"
                     required
                     value={formData.name}
@@ -131,12 +133,11 @@ Message: ${formData.message}
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Phone Number
                   </label>
                   <input
                     type="tel"
-                    id="phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
@@ -145,14 +146,13 @@ Message: ${formData.message}
                   />
                 </div>
               </div>
-              
+
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Email Address *
                 </label>
                 <input
                   type="email"
-                  id="email"
                   name="email"
                   required
                   value={formData.email}
@@ -161,45 +161,43 @@ Message: ${formData.message}
                   placeholder="your.email@example.com"
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Subject *
                 </label>
                 <input
                   type="text"
-                  id="subject"
                   name="subject"
                   required
                   value={formData.subject}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                  placeholder="What is this about?"
+                  placeholder="Subject of inquiry"
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Message *
                 </label>
                 <textarea
-                  id="message"
                   name="message"
                   required
                   rows={5}
                   value={formData.message}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent resize-none"
-                  placeholder="Tell us more about your inquiry..."
+                  placeholder="Write your inquiry here..."
                 ></textarea>
               </div>
-              
+
               <Button
                 type="submit"
                 size="lg"
                 className="w-full bg-gradient-to-r from-yellow-500 to-red-500 hover:from-yellow-600 hover:to-red-600 text-white py-4 text-lg font-semibold"
               >
-                Send Message via WhatsApp
+                Send via WhatsApp
               </Button>
             </form>
           </motion.div>
@@ -212,7 +210,7 @@ Message: ${formData.message}
             className="space-y-8"
           >
             <div className="bg-white rounded-2xl shadow-lg p-8 cultural-shadow">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Official Contact Details</h2>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-start space-x-4">
@@ -260,21 +258,6 @@ Message: ${formData.message}
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-yellow-400 to-red-500 rounded-2xl shadow-lg p-8 text-white">
-              <h3 className="text-xl font-bold mb-4">Quick Response</h3>
-              <p className="mb-4">
-                For immediate assistance, contact us via WhatsApp. We typically respond within 30 minutes during business hours.
-              </p>
-              <a
-                href="https://wa.me/916003170583"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 bg-white text-yellow-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
-              >
-                <MessageCircle className="h-5 w-5" />
-                <span>Chat on WhatsApp</span>
-              </a>
-            </div>
           </motion.div>
         </div>
       </div>
