@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
@@ -9,49 +8,80 @@ const Footer = () => {
 
   const handleSocialClick = (socialMedia) => {
     toast({
-      title: "🚧 Coming Soon!",
-      description: `Our ${socialMedia} page isn't live yet, but we're working on it!`,
+      title: "Coming Soon",
+      description: `Our official ${socialMedia} page will be available soon.`,
     });
   };
 
   return (
-    <footer className="bg-cream-200 text-teal-dark py-8 mt-16">
+    <footer className="bg-gray-100 text-gray-700 py-10 mt-16 border-t">
       <div className="container mx-auto px-6">
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+          {/* Company Info */}
           <div>
-            <p className="font-serif text-xl font-bold text-maroon mb-2">Khilonjiya.com</p>
-            <p className="text-sm">Weaving Assam's Heritage, One Thread at a Time.</p>
+            <p className="text-xl font-semibold mb-2">
+              Khilonjiya India Private Limited
+            </p>
+            <p className="text-sm">
+              Empowering Employment. Strengthening Infrastructure.
+            </p>
+            <p className="text-xs mt-2 text-gray-500">
+              CIN: U41001AS2025PTC028831
+            </p>
           </div>
+
+          {/* Navigation */}
           <div>
-            <p className="font-bold mb-2">Quick Links</p>
+            <p className="font-semibold mb-3">Company</p>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/about" className="hover:text-maroon">About Us</Link></li>
-              <li><Link to="/" className="hover:text-maroon">Shop</Link></li>
+              <li><Link to="/" className="hover:text-blue-600">Home</Link></li>
+              <li><Link to="/about" className="hover:text-blue-600">About</Link></li>
+              <li><Link to="/services" className="hover:text-blue-600">Services</Link></li>
+              <li><Link to="/why-choose-khilonjiya" className="hover:text-blue-600">Why Choose Us</Link></li>
+              <li><Link to="/contact" className="hover:text-blue-600">Contact</Link></li>
             </ul>
           </div>
+
+          {/* Legal */}
           <div>
-            <p className="font-bold mb-2">Policies</p>
+            <p className="font-semibold mb-3">Legal</p>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/privacy-policy" className="hover:text-maroon">Privacy Policy</Link></li>
-              <li><Link to="/terms-of-service" className="hover:text-maroon">Terms of Service</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-blue-600">Privacy Policy</Link></li>
+              <li><Link to="/terms-and-conditions" className="hover:text-blue-600">Terms & Conditions</Link></li>
+              <li><Link to="/refund-policy" className="hover:text-blue-600">Refund Policy</Link></li>
+              <li><Link to="/data-deletion-policy" className="hover:text-blue-600">Data Deletion Policy</Link></li>
             </ul>
           </div>
+
+          {/* Social */}
           <div>
-            <p className="font-bold mb-2">Follow Us</p>
+            <p className="font-semibold mb-3">Follow Us</p>
             <div className="flex space-x-4">
-              <button onClick={() => handleSocialClick('Facebook')} className="hover:text-maroon"><Facebook /></button>
-              <button onClick={() => handleSocialClick('Instagram')} className="hover:text-maroon"><Instagram /></button>
-              <button onClick={() => handleSocialClick('Twitter')} className="hover:text-maroon"><Twitter /></button>
+              <button onClick={() => handleSocialClick('Facebook')} className="hover:text-blue-600">
+                <Facebook />
+              </button>
+              <button onClick={() => handleSocialClick('Instagram')} className="hover:text-blue-600">
+                <Instagram />
+              </button>
+              <button onClick={() => handleSocialClick('Twitter')} className="hover:text-blue-600">
+                <Twitter />
+              </button>
             </div>
           </div>
+
         </div>
-        <div className="text-center mt-8 pt-8 border-t border-teal-dark/20 text-sm">
-          <p>&copy; {new Date().getFullYear()} Khilonjiya.com. All Rights Reserved.</p>
+
+        <div className="text-center mt-10 pt-6 border-t text-sm text-gray-500">
+          <p>
+            &copy; {new Date().getFullYear()} Khilonjiya India Private Limited. All Rights Reserved.
+          </p>
         </div>
+
       </div>
     </footer>
   );
 };
 
 export default Footer;
-  
